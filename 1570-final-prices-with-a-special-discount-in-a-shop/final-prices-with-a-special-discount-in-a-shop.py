@@ -1,21 +1,17 @@
 class Solution(object):
     def finalPrices(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: List[int]
-        """
         n=len(prices)
-        ans=[1]*n
+        stack=[]
+        answer = prices[:]
         for i in range(n):
-            discount=0
-            for j in range(i+1,n):  
-                if prices[j]<=prices[i]:
-                    discount=abs(prices[j])
-                    break
-            ans[i]=prices[i]-discount
-            print(ans)
-
-        return ans
+            while stack and prices[i]<=prices[stack[-1]]:
+                previous=stack.pop()
+                answer[previous]=abs(prices[i]-prices[previous]) 
+            stack.append(i) 
+        return answer
+        
 
 
+
+        
         
