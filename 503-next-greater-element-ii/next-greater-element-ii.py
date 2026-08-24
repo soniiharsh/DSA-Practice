@@ -15,8 +15,7 @@ class Solution(object):
                 if p < n:
                     ans[p]=nums2[i]
             stack.append(i)
-       
         return ans
                 
-        
+           
         
