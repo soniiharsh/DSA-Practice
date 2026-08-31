@@ -1,17 +1,14 @@
 class Solution(object):
     def solve(self, i, nums, ans, temp):
-        if i >= len(nums):
-            if temp not in ans:
-                ans.append(temp[:])
-            return
-
-        # take
-        temp.append(nums[i])
-        self.solve(i + 1, nums, ans, temp)
-        temp.pop()
-
-        # not take
-        self.solve(i + 1, nums, ans, temp)
+        
+        ans.append(temp[:])
+        
+        for j in range(i,len(nums)):
+            if j>i and nums[j]==nums[j-1]:
+                continue
+            temp.append(nums[j])
+            self.solve(j+1,nums,ans,temp)
+            temp.pop()
     def subsetsWithDup(self, nums):
         """
         :type nums: List[int]
