@@ -12,7 +12,6 @@ class Solution(object):
         # TAKE
         if candidates[i] <= target:
             temp.append(candidates[i])
-            
             self.solve(
                 i,candidates,target - candidates[i],ans,temp
             )
