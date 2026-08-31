@@ -2,9 +2,7 @@ class Solution(object):
     
     def solve(self, i, candidates, target, ans, temp):
         
-        if target == 0 and temp not in ans:
-            if temp not in ans:
-
+        if target == 0:
                  ans.append(temp[:])
                  return
         for j in range(i,len(candidates)):
